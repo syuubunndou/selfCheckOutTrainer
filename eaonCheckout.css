@@ -1,0 +1,374 @@
+:root{
+    --main-window-width  : 80%;  
+        /*TaskWindowのmain-window　幅比率を定義　*/
+    --btn-window-width   : calc(97.5% - var(--main-window-width)); 
+        /*TaskWindowのbtn-window　 幅比率を定義*/
+    --task-window-height : 400px; 
+        /*TaskWindowのmain-window　高さ比率を定義*/
+}
+
+/* 【CSSの書く順序】
+    position        : relative;
+    top(bottom)     : 0px
+    right(left)     : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 0px;
+    overflow-x      : scroll;
+    height          : 0px;
+    overflow-y      : scroll;
+
+    background-color: red;
+    border-top      : 5px solid #b1b1b1; 
+    border-left     : 5px solid #b1b1b1; 
+    border-right    : 5px solid #b1b1b1; 
+    border-bottom   : 5px solid #b1b1b1;
+    box-shadow      : 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    border-radius   : 5px; 
+
+    display         : block;    
+*/
+
+html, body {
+    margin          : 0;
+    padding         : 0;
+
+    width           : 100vw;  /* 画面の横幅いっぱい */
+    height          : 100vh; /* 画面の高さいっぱい */
+
+    overflow-x      : hidden; /* スクロールバーを防ぐ */
+    overflow-y      : scroll;
+}
+
+/*=================================================================================*/
+/*====[ヘッダー部分]=============================================================================*/
+
+
+
+/*＝＝＝＝1枚目　＝＝＝＝＝＝*/
+.aeon-1base{
+    position        : relative;
+    top             : 0px;
+    right           : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 100%;
+
+    height          : 100%;
+  
+    z-index         : 1;
+
+    display         : block;
+}
+
+
+.aeon-ornerbtn{
+    position        : absolute;
+
+    top             : -50px;
+    right           : 10px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+ 
+    width           : 50%;
+
+    z-index         : 2;
+
+    display         : block;
+}
+
+.aeon-items{/*初期画面　ボタンの倍率。23％　*/
+    position        : absolute;
+
+    width           : 230px;
+
+    z-index         : 2;
+
+    display         : block;
+}
+/*以下のボタン＠は倍率23%で250px離れています*/
+.aeon-items--creditbtn{
+    bottom          : 320px;
+    left            : 20px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+ 
+}
+.aeon-items--baonbtn{
+    bottom          : 320px;
+    left            : 270px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-items--emoneybtn{
+    bottom          : 320px;
+    left            : 520px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-items--cashbtn{
+    bottom          : 320px;
+    left            : 770px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+
+.aeon-items--ribobtn{/*リボ払いボタン*/
+    bottom          : 210px;
+    left            : 20px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+ 
+}
+.aeon-items--giftbtn{/*ギフトカードボタン*/
+    bottom          : 210px;
+    right           : 20px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+}
+.aeon-items--beonpaybtn{/*バオンペイ*/
+    bottom          : 210px;
+    left            : 520px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-items--somethingbtn{/*銀行的なボタン*/
+    bottom          : 210px;
+    left            : 270px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-items--baonpointbtn{
+    bottom          : 100px;
+    left            : 270px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+
+.aeon-whitebtns{/*初期画面　白ボタンの倍率。20％　*/
+    position        : absolute;
+
+    width           : 190px;
+
+    z-index         : 2;
+
+    display         : block;
+}/*以下、　白ボタンは倍率20%で200ずつ離れています。*/
+.aeon-whitebtns--refbtn{
+    bottom          : 10px;
+    left            : 15px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-whitebtns--chargebtn{
+    bottom          : 10px;
+    left            : 215px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-whitebtns--readcardbtn{
+    bottom          : 10px;
+    left            : 415px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-whitebtns--tolangbtn{
+    bottom          : 10px;
+    left            : 615px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+.aeon-whitebtns--callstaffbtn{
+    bottom          : 10px;
+    left            : 815px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+}
+
+.aeon-1base-purchaceAmont{
+    position        : absolute;
+    top             : 100px;
+    left            : 200px;
+
+    width           : 350px;
+
+    z-index         : 2;
+
+    font-size       : 70px;
+
+    display         : block;
+}
+
+/*＝＝＝最初の画面　英語バージョン＝＝＝＝*/
+.aeon-1base--en{
+    display         : none;
+}
+#tojp{
+    bottom          : 0px;
+    left            : 605px;
+    display         : none;
+}
+
+/*＝＝＝＝２枚目　現金　カードチェック＝＝＝＝*/
+.aeon-1base--checkcard{
+    display         : none;
+}
+
+.aeon-checkcard{/*現金支払い　カード確認　基盤*/
+    position        : absolute;
+
+    width           : 450px;
+
+    z-index         : 2;
+
+    display         : none;
+}
+.aeon-checkcard--baoncard{
+    bottom          : 320px;
+    left            : 50px;
+}
+.aeon-checkcard--pointcard{
+    bottom          : 320px;
+    right           : 50px;
+}
+.aeon-checkcard--nocards{
+    bottom          : 90px;
+    left            : 280px;
+}
+.aeon-whitebtns--23checkcardBack{/*現金支払い　カード確認時　戻るボタン*/
+    bottom          : 0px;
+    right           : 50px;
+    display         : none;
+}
+
+/*＝＝＝3枚目　現金　カードチェック＝＝＝＝*/
+.aeon-1base--3readcard{
+    display         : none;
+}
+
+/*3枚目　現金　支払い*/
+.aeon-1base--3cash{
+    display         : none;
+}
+.aeon-3complete{/*現金支払い　お支払い完了ボタン*/
+    position        : absolute;
+    bottom          : 120px;
+    right           : 200px;
+
+    width           : 350px;
+
+    z-index         : 2;
+
+    display         : none;
+}
+.aeon-whitebtns--3cashwhitebtns{/*現金支払い　白ボタン*/
+    display         : none;
+}
+.aeon-whitebtns--3cashback{
+    bottom          : 5px;
+    right           : 450px;
+}
+.aeon-whitebtns--3return{
+    bottom          : 5px;
+    right           : 230px;
+
+}
+.aeon-whitebtns--3callstaff{
+    bottom          : 5px;
+    right           : 10px;
+}
+.aeon-whitebtns--3addcard{
+    bottom          : 5px;
+    left            : 20px;
+}
+
+.aeon_like_3cashdiv{/*現金支払い　文字列オブジェクト*/
+    position        : absolute;
+
+    width           : 350px;
+
+    z-index         : 2;
+
+    font-size       : 50px;
+
+    display         : none;
+}
+.aeon_like_3cashdiv--3purchaceAmount{
+    top             : 60px;
+    left            : 20px;
+}
+.aeon_like_3cashdiv--3paymentAmount{
+    top             : 200px;
+    left            : 20px;
+}
+.aeon_like_3cashdiv--3change{
+    bottom          : 205px;
+    left            : 20px;
+}
+
+.aeon-1base--underprocess{/*処理中画面*/
+    display         : none;
+}
+
+.aeon-1base--payByBaon{/*BAONで支払い*/
+    display         : none;
+}
+.aeon-1base--scanbc{/*バーコードリーダーで支払い*/
+    display         : none;
+}
+.aeon-1base--credit{/*クレジット払いで支払い*/
+    display         : none;
+}
+.aeon-1base--ribo{/*リボ払いで支払い*/
+    display         : none;
+}
+.credit-purchase-amount{/*クレジット支払の際　残高表示*/
+    position        : absolute;
+    bottom          : 205px;
+    left            : 535px;
+    width           : 350px;
+
+    z-index         : 2;
+
+    font-size       : 35px;
+
+    display         : none;
+}
+
+/*他の支払い方法の際の　戻る＆係員呼出*/
+.aeon-whitebtns--3otherpayments-btns{
+    display         : none;
+}
+.aeon-whitebtns--3opcall{
+    bottom          : 40px;
+    right           : 50px;
+}
+.aeon-whitebtns--3opback{
+    bottom          : 40px;
+    right           : 300px;
+}
+
+/*支払い完了画面*/
+.aeon-1base--finish{
+    display         : none;
+}
+.finish-Amount{
+    position        : absolute;
+
+    z-index         : 2;
+
+    font-size       : 40px;
+
+    display         : none;
+}
+.finish-Amount--change{
+    bottom          : 150px;
+    left            : 480px;
+}
+.finish-Amount--payment{
+    bottom          : 105px;
+    left            : 480px;
+}

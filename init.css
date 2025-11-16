@@ -1,0 +1,52 @@
+:root{
+    --main-window-width  : 80%;  
+        /*TaskWindowのmain-window　幅比率を定義　*/
+    --btn-window-width   : calc(97.5% - var(--main-window-width)); 
+        /*TaskWindowのbtn-window　 幅比率を定義*/
+    --task-window-height : 400px; 
+        /*TaskWindowのmain-window　高さ比率を定義*/
+}
+
+/* 【CSSの書く順序】
+    position        : relative;
+    top(bottom)     : 0px
+    right(left)     : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 0px;
+    overflow-x      : scroll;
+    height          : 0px;
+    overflow-y      : scroll;
+
+    background-color: red;
+    border-top      : 5px solid #b1b1b1; 
+    border-left     : 5px solid #b1b1b1; 
+    border-right    : 5px solid #b1b1b1; 
+    border-bottom   : 5px solid #b1b1b1;
+    box-shadow      : 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    border-radius   : 5px; 
+
+    display         : block;    
+*/
+
+html, body {
+    margin          : 0;
+    padding         : 0;
+
+    width           : 100vw;  /* 画面の横幅いっぱい */
+    height          : 100vh; /* 画面の高さいっぱい */
+
+    overflow-x      : hidden; /* スクロールバーを防ぐ */
+    overflow-y      : scroll;
+}
+
+/*=================================================================================*/
+/*====[ヘッダー部分]=============================================================================*/
+
+.header {
+    position        : relative;  /* 相対位置を基準 */
+    margin          : 0px 0px 10px;
+
+    width           : 100%;
+}

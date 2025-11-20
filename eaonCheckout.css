@@ -67,12 +67,13 @@ html, body {
 .aeon-ornerbtn{
     position        : absolute;
 
-    top             : -50px;
+    top             : -60px;
     right           : 10px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
- 
+
     width           : 50%;
+    height          : 37%;
 
     z-index         : 2;
 
@@ -90,60 +91,60 @@ html, body {
 }
 /*以下のボタン＠は倍率23%で250px離れています*/
 .aeon-items--creditbtn{
-    bottom          : 320px;
-    left            : 20px;
+    bottom          : 270px;
+    left            : 50px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
  
 }
 .aeon-items--baonbtn{
-    bottom          : 320px;
-    left            : 270px;
+    bottom          : 270px;
+    left            : 300px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--emoneybtn{
-    bottom          : 320px;
-    left            : 520px;
+    bottom          : 270px;
+    left            : 550px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--cashbtn{
-    bottom          : 320px;
-    left            : 770px;
+    bottom          : 270px;
+    left            : 800px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 
 .aeon-items--ribobtn{/*リボ払いボタン*/
-    bottom          : 210px;
-    left            : 20px;
+    bottom          : 170px;
+    left            : 50px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
  
 }
 .aeon-items--giftbtn{/*ギフトカードボタン*/
-    bottom          : 210px;
-    right           : 20px;
+    bottom          : 170px;
+    right           : 50px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
 }
 .aeon-items--beonpaybtn{/*バオンペイ*/
-    bottom          : 210px;
-    left            : 520px;
+    bottom          : 170px;
+    left            : 550px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--somethingbtn{/*銀行的なボタン*/
-    bottom          : 210px;
-    left            : 270px;
+    bottom          : 170px;
+    left            : 300px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--baonpointbtn{
-    bottom          : 100px;
-    left            : 270px;
+    bottom          : 75px;
+    left            : 300px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
@@ -158,32 +159,32 @@ html, body {
     display         : block;
 }/*以下、　白ボタンは倍率20%で200ずつ離れています。*/
 .aeon-whitebtns--refbtn{
-    bottom          : 10px;
-    left            : 15px;
+    bottom          : 5px;
+    left            : 45px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-whitebtns--chargebtn{
-    bottom          : 10px;
-    left            : 215px;
+    bottom          : 5px;
+    left            : 245px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-whitebtns--readcardbtn{
-    bottom          : 10px;
-    left            : 415px;
+    bottom          : 5px;
+    left            : 445px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-whitebtns--tolangbtn{
-    bottom          : 10px;
-    left            : 615px;
+    bottom          : 5px;
+    left            : 645px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-whitebtns--callstaffbtn{
-    bottom          : 10px;
-    left            : 815px;
+    bottom          : 5px;
+    left            : 845px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
@@ -227,11 +228,11 @@ html, body {
     display         : none;
 }
 .aeon-checkcard--baoncard{
-    bottom          : 320px;
+    bottom          : 260px;
     left            : 50px;
 }
 .aeon-checkcard--pointcard{
-    bottom          : 320px;
+    bottom          : 260px;
     right           : 50px;
 }
 .aeon-checkcard--nocards{

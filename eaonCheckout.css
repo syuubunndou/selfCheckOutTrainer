@@ -47,8 +47,55 @@ html, body {
 
 
 /*＝＝＝＝1枚目　＝＝＝＝＝＝*/
-.aeon-1base{
+.aeon-1baseTop{
     position        : relative;
+    top             : 0px;
+    right           : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 100%;
+
+    height          : 30%;
+  
+    z-index         : 1;
+
+    display         : block;
+}
+.aeon-1baseMBanner{
+    position        : relative;
+    top             : 0px;
+    right           : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 100%;
+
+    height          : 6%;
+  
+    z-index         : 1;
+
+    display         : block;
+}
+.aeon-1baseMiddleCnt{
+    position        : relative;
+    top             : 0px;
+    right           : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 100%;
+
+    height          : 53%;
+  
+    z-index         : 1;
+
+    display         : block;
+    overflow-y      : scroll;
+    overflow-x      : scroll;
+}
+.aeon-1baseMiddle{
+    position        : absolute;
     top             : 0px;
     right           : 0px;
     margin          : 0px 0px 0px;
@@ -62,6 +109,40 @@ html, body {
 
     display         : block;
 }
+
+.aeon-1baseBottomCnt{
+    position        : relative;
+    top             : 0px;
+    right           : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 100%;
+
+    height          : 11%;
+  
+    z-index         : 1;
+
+    display         : block;
+    overflow-y      : scroll;
+    overflow-x      : scroll;
+}
+.aeon-1baseBottom{
+    position        : absolute;
+    top             : 0px;
+    right           : 0px;
+    margin          : 0px 0px 0px;
+    padding         : 0px 0px 0px;
+
+    width           : 100%;
+
+    height          : 100%;
+  
+    z-index         : 1;
+
+    display         : block;
+}
+
 
 
 .aeon-ornerbtn{
@@ -91,59 +172,59 @@ html, body {
 }
 /*以下のボタン＠は倍率23%で250px離れています*/
 .aeon-items--creditbtn{
-    bottom          : 270px;
+    bottom          : 220px;
     left            : 50px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
  
 }
 .aeon-items--baonbtn{
-    bottom          : 270px;
+    bottom          : 220px;
     left            : 300px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--emoneybtn{
-    bottom          : 270px;
+    bottom          : 220px;
     left            : 550px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--cashbtn{
-    bottom          : 270px;
+    bottom          : 220px;
     left            : 800px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 
 .aeon-items--ribobtn{/*リボ払いボタン*/
-    bottom          : 170px;
+    bottom          : 120px;
     left            : 50px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
  
 }
 .aeon-items--giftbtn{/*ギフトカードボタン*/
-    bottom          : 170px;
-    right           : 50px;
+    bottom          : 120px;
+    left            : 800px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
 }
 .aeon-items--beonpaybtn{/*バオンペイ*/
-    bottom          : 170px;
+    bottom          : 120px;
     left            : 550px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--somethingbtn{/*銀行的なボタン*/
-    bottom          : 170px;
+    bottom          : 120px;
     left            : 300px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--baonpointbtn{
-    bottom          : 75px;
+    bottom          : 25px;
     left            : 300px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
@@ -189,7 +270,7 @@ html, body {
     padding         : 0px 0px 0px;
 }
 
-.aeon-1base-purchaceAmont{
+.aeon-1base-purchaceAmount{
     position        : absolute;
     top             : 100px;
     left            : 200px;
@@ -205,16 +286,20 @@ html, body {
 
 /*＝＝＝最初の画面　英語バージョン＝＝＝＝*/
 .aeon-1base--en{
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 #tojp{
     bottom          : 0px;
-    left            : 605px;
+    left            : 700px;
     display         : none;
 }
 
 /*＝＝＝＝２枚目　現金　カードチェック＝＝＝＝*/
 .aeon-1base--checkcard{
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 
@@ -228,11 +313,11 @@ html, body {
     display         : none;
 }
 .aeon-checkcard--baoncard{
-    bottom          : 260px;
+    bottom          : 300px;
     left            : 50px;
 }
 .aeon-checkcard--pointcard{
-    bottom          : 260px;
+    bottom          : 300px;
     right           : 50px;
 }
 .aeon-checkcard--nocards{
@@ -247,11 +332,15 @@ html, body {
 
 /*＝＝＝3枚目　現金　カードチェック＝＝＝＝*/
 .aeon-1base--3readcard{
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 
 /*3枚目　現金　支払い*/
 .aeon-1base--3cash{
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-3complete{/*現金支払い　お支払い完了ボタン*/
@@ -269,20 +358,20 @@ html, body {
     display         : none;
 }
 .aeon-whitebtns--3cashback{
-    bottom          : 5px;
+    bottom          : 0px;
     right           : 450px;
 }
 .aeon-whitebtns--3return{
-    bottom          : 5px;
-    right           : 230px;
+    bottom          : 0px;
+    left            : 530px;
 
 }
 .aeon-whitebtns--3callstaff{
-    bottom          : 5px;
+    bottom          : 0px;
     right           : 10px;
 }
 .aeon-whitebtns--3addcard{
-    bottom          : 5px;
+    bottom          : 0px;
     left            : 20px;
 }
 
@@ -291,7 +380,7 @@ html, body {
 
     width           : 350px;
 
-    z-index         : 2;
+    z-index         : 3;
 
     font-size       : 50px;
 
@@ -310,20 +399,51 @@ html, body {
     left            : 20px;
 }
 
+.aeon_like_4cashdiv{/*現金支払い　文字列オブジェクト*/
+    position        : absolute;
+
+    width           : 350px;
+
+    z-index         : 3;
+
+    font-size       : 40px;
+
+    display         : none;
+}
+.aeon_like_4cashdiv--4paymentAmount{
+    bottom          : 90px;
+    left            : 500px;
+}
+.aeon_like_4cashdiv--4change{
+    bottom          : 140px;
+    left            : 500px;
+}
+
+
 .aeon-1base--underprocess{/*処理中画面*/
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 
 .aeon-1base--payByBaon{/*BAONで支払い*/
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-1base--scanbc{/*バーコードリーダーで支払い*/
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-1base--credit{/*クレジット払いで支払い*/
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-1base--ribo{/*リボ払いで支払い*/
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .credit-purchase-amount{/*クレジット支払の際　残高表示*/
@@ -340,20 +460,27 @@ html, body {
 }
 
 /*他の支払い方法の際の　戻る＆係員呼出*/
+.aeon-1base--callstaff{
+    height          : 100%;
+    width           : 100%;
+    display         : none;
+}
 .aeon-whitebtns--3otherpayments-btns{
     display         : none;
 }
 .aeon-whitebtns--3opcall{
-    bottom          : 40px;
-    right           : 50px;
+    bottom          : 0px;
+    left            : 750px;
 }
 .aeon-whitebtns--3opback{
-    bottom          : 40px;
-    right           : 300px;
+    bottom          : 0px;
+    left            : 300px;
 }
 
 /*支払い完了画面*/
 .aeon-1base--finish{
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .finish-Amount{

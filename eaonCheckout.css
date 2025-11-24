@@ -334,14 +334,14 @@ html, body {
 
 /*＝＝＝3枚目　現金　カードチェック＝＝＝＝*/
 .aeon-1base--3readcard{
-    height          : 100%;
+    height          : 89%;
     width           : 100%;
     display         : none;
 }
 
 /*3枚目　現金　支払い*/
 .aeon-1base--3cash{
-    height          : 100%;
+    height          : 89%;
     width           : 100%;
     display         : none;
 }
@@ -485,7 +485,7 @@ html, body {
 
 /*支払い完了画面*/
 .aeon-1base--finish{
-    height          : 100%;
+    height          : 89%;
     width           : 100%;
     display         : none;
 }

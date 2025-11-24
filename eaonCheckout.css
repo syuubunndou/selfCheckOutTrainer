@@ -30,6 +30,8 @@
     display         : block;    
 */
 
+/*なぜかipadは全て11%分高さがない。*/
+
 html, body {
     margin          : 0;
     padding         : 0;
@@ -56,7 +58,7 @@ html, body {
 
     width           : 100%;
 
-    height          : 30%;
+    height          : 26.7%;
   
     z-index         : 1;
 
@@ -71,7 +73,7 @@ html, body {
 
     width           : 100%;
 
-    height          : 6%;
+    height          : 5.34%;
   
     z-index         : 1;
 
@@ -86,7 +88,7 @@ html, body {
 
     width           : 100%;
 
-    height          : 53%;
+    height          : 47.17%;
   
     z-index         : 1;
 
@@ -119,7 +121,7 @@ html, body {
 
     width           : 100%;
 
-    height          : 11%;
+    height          : 9.79%;
   
     z-index         : 1;
 

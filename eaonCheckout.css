@@ -174,53 +174,53 @@ html, body {
 }
 /*以下のボタン＠は倍率23%で250px離れています*/
 .aeon-items--creditbtn{
-    bottom          : 200px;
+    bottom          : 190px;
     left            : 30px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
  
 }
 .aeon-items--baonbtn{
-    bottom          : 200px;
+    bottom          : 190px;
     left            : 280px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--emoneybtn{
-    bottom          : 200px;
+    bottom          : 190px;
     left            : 530px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--cashbtn{
-    bottom          : 200px;
+    bottom          : 190px;
     left            : 780px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 
 .aeon-items--ribobtn{/*リボ払いボタン*/
-    bottom          : 100px;
+    bottom          : 90px;
     left            : 30px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
  
 }
 .aeon-items--giftbtn{/*ギフトカードボタン*/
-    bottom          : 100px;
+    bottom          : 90px;
     left            : 780px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
 }
 .aeon-items--beonpaybtn{/*バオンペイ*/
-    bottom          : 100px;
+    bottom          : 90px;
     left            : 530px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 }
 .aeon-items--somethingbtn{/*銀行的なボタン*/
-    bottom          : 100px;
+    bottom          : 90px;
     left            : 280px;
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
@@ -315,15 +315,15 @@ html, body {
     display         : none;
 }
 .aeon-checkcard--baoncard{
-    bottom          : 300px;
+    bottom          : 27px;
     left            : 50px;
 }
 .aeon-checkcard--pointcard{
-    bottom          : 300px;
+    bottom          : 270px;
     right           : 50px;
 }
 .aeon-checkcard--nocards{
-    bottom          : 90px;
+    bottom          : 70px;
     left            : 280px;
 }
 .aeon-whitebtns--23checkcardBack{/*現金支払い　カード確認時　戻るボタン*/
@@ -347,7 +347,7 @@ html, body {
 }
 .aeon-3complete{/*現金支払い　お支払い完了ボタン*/
     position        : absolute;
-    bottom          : 120px;
+    bottom          : 100px;
     right           : 200px;
 
      /*元の幅は350px. それを７．７３％減少した。*/
@@ -391,15 +391,15 @@ html, body {
     display         : none;
 }
 .aeon_like_3cashdiv--3purchaceAmount{
-    top             : 60px;
+    top             : 50px;
     left            : 20px;
 }
 .aeon_like_3cashdiv--3paymentAmount{
-    top             : 200px;
+    top             : 170px;
     left            : 20px;
 }
 .aeon_like_3cashdiv--3change{
-    bottom          : 205px;
+    bottom          : 175px;
     left            : 20px;
 }
 
@@ -416,11 +416,11 @@ html, body {
     display         : none;
 }
 .aeon_like_4cashdiv--4paymentAmount{
-    bottom          : 90px;
+    bottom          : 75px;
     left            : 500px;
 }
 .aeon_like_4cashdiv--4change{
-    bottom          : 140px;
+    bottom          : 125px;
     left            : 500px;
 }
 

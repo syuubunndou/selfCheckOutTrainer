@@ -2249,7 +2249,7 @@ class ScrOrnersCard {
 class AeonLikeCheckOutApp {
     constructor() {
         this.viceAudioList = [];
-        alert("17:30");
+        alert("17:40");
         this.AUDIO_MANAGER = new AudioManager();
         this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER);
         this.currentScreenName = this.screenObject.SCREEN_NAME;

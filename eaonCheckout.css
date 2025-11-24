@@ -54,7 +54,7 @@ html, body {
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
-    width           : 80%;
+    width           : 100%;
 
     height          : 30%;
   
@@ -69,7 +69,7 @@ html, body {
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
-    width           : 80%;
+    width           : 100%;
 
     height          : 6%;
   
@@ -84,7 +84,7 @@ html, body {
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
-    width           : 80%;
+    width           : 100%;
 
     height          : 53%;
   
@@ -101,9 +101,9 @@ html, body {
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
-    width           : 80%;
+    width           : 100%;
 
-    height          : 80%;
+    height          : 100%;
   
     z-index         : 1;
 
@@ -117,7 +117,7 @@ html, body {
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
-    width           : 80%;
+    width           : 100%;
 
     height          : 11%;
   
@@ -134,9 +134,9 @@ html, body {
     margin          : 0px 0px 0px;
     padding         : 0px 0px 0px;
 
-    width           : 80%;
+    width           : 100%;
 
-    height          : 80%;
+    height          : 100%;
   
     z-index         : 1;
 
@@ -286,8 +286,8 @@ html, body {
 
 /*＝＝＝最初の画面　英語バージョン＝＝＝＝*/
 .aeon-1base--en{
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 #tojp{
@@ -298,8 +298,8 @@ html, body {
 
 /*＝＝＝＝２枚目　現金　カードチェック＝＝＝＝*/
 .aeon-1base--checkcard{
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 
@@ -332,15 +332,15 @@ html, body {
 
 /*＝＝＝3枚目　現金　カードチェック＝＝＝＝*/
 .aeon-1base--3readcard{
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 
 /*3枚目　現金　支払い*/
 .aeon-1base--3cash{
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-3complete{/*現金支払い　お支払い完了ボタン*/
@@ -421,29 +421,29 @@ html, body {
 
 
 .aeon-1base--underprocess{/*処理中画面*/
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 
 .aeon-1base--payByBaon{/*BAONで支払い*/
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-1base--scanbc{/*バーコードリーダーで支払い*/
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-1base--credit{/*クレジット払いで支払い*/
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-1base--ribo{/*リボ払いで支払い*/
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .credit-purchase-amount{/*クレジット支払の際　残高表示*/
@@ -461,8 +461,8 @@ html, body {
 
 /*他の支払い方法の際の　戻る＆係員呼出*/
 .aeon-1base--callstaff{
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .aeon-whitebtns--3otherpayments-btns{
@@ -479,8 +479,8 @@ html, body {
 
 /*支払い完了画面*/
 .aeon-1base--finish{
-    height          : 80%;
-    width           : 80%;
+    height          : 100%;
+    width           : 100%;
     display         : none;
 }
 .finish-Amount{

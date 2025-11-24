@@ -1811,7 +1811,7 @@ class ScrCash3 {
         this.ENTER_BTN = document.getElementById("complete");
         this.ADD_CARD_BTN = document.getElementById("addcard");
         this.RETURN_BTN = document.getElementById("return");
-        this.BACK_BTN = document.getElementById("opback");
+        this.BACK_BTN = document.getElementById("cashback");
         this.CALL_BTN = document.getElementById("opcall");
         this.CHANGE_AMOUNT = document.getElementById("changeAmount");
         this.PAYMENT_AMOUNT = document.getElementById("paymentAmount");
@@ -2249,7 +2249,7 @@ class ScrOrnersCard {
 class AeonLikeCheckOutApp {
     constructor() {
         this.viceAudioList = [];
-        alert("17:20");
+        alert("17:30");
         this.AUDIO_MANAGER = new AudioManager();
         this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER);
         this.currentScreenName = this.screenObject.SCREEN_NAME;

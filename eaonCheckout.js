@@ -1470,6 +1470,7 @@ class PreLoader {
                                     }
 
 
+
         `;
         this.STYLE.textContent = basicStyleContext;
         document.head.appendChild(this.STYLE);
@@ -2249,7 +2250,7 @@ class ScrOrnersCard {
 class AeonLikeCheckOutApp {
     constructor() {
         this.viceAudioList = [];
-        alert("17:50");
+
         this.AUDIO_MANAGER = new AudioManager();
         this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER);
         this.currentScreenName = this.screenObject.SCREEN_NAME;

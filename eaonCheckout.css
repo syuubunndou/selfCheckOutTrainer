@@ -165,8 +165,8 @@ html, body {
 
 .aeon-items{/*初期画面　ボタンの倍率。23％　*/
     position        : absolute;
-
-    width           : 230px;
+    /*元の幅は230px. それを７．７３％減少した。*/
+    width           : 212px;
 
     z-index         : 2;
 
@@ -234,8 +234,8 @@ html, body {
 
 .aeon-whitebtns{/*初期画面　白ボタンの倍率。20％　*/
     position        : absolute;
-
-    width           : 190px;
+ /*元の幅は190px. それを７．７３％減少した。*/
+    width           : 175px;
 
     z-index         : 2;
 
@@ -307,8 +307,8 @@ html, body {
 
 .aeon-checkcard{/*現金支払い　カード確認　基盤*/
     position        : absolute;
-
-    width           : 450px;
+ /*元の幅は450px. それを７．７３％減少した。*/
+    width           : 415px;
 
     z-index         : 2;
 
@@ -350,7 +350,8 @@ html, body {
     bottom          : 120px;
     right           : 200px;
 
-    width           : 350px;
+     /*元の幅は350px. それを７．７３％減少した。*/
+    width           : 323px;
 
     z-index         : 2;
 
@@ -380,7 +381,8 @@ html, body {
 .aeon_like_3cashdiv{/*現金支払い　文字列オブジェクト*/
     position        : absolute;
 
-    width           : 350px;
+     /*元の幅は350px. それを７．７３％減少した。*/
+    width           : 323px;
 
     z-index         : 3;
 
@@ -404,7 +406,8 @@ html, body {
 .aeon_like_4cashdiv{/*現金支払い　文字列オブジェクト*/
     position        : absolute;
 
-    width           : 350px;
+     /*元の幅は350px. それを７．７３％減少した。*/
+    width           : 323px;
 
     z-index         : 3;
 
@@ -452,7 +455,8 @@ html, body {
     position        : absolute;
     bottom          : 205px;
     left            : 535px;
-    width           : 350px;
+     /*元の幅は350px. それを７．７３％減少した。*/
+    width           : 323px;
 
     z-index         : 2;
 

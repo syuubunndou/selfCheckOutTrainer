@@ -1582,7 +1582,6 @@ class UtilsScreenFunctions {
         this.AUDIO_MANAGER.playExplanationSound();
     }
     setNextScreenName(SCREEN_NAME) {
-        console.log(`next screen name set to : ${SCREEN_NAME}`);
         this.nextScreenName = SCREEN_NAME;
     }
     hideThisScreenSystem(nextScreenName) {
@@ -1602,7 +1601,6 @@ class UtilsScreenFunctions {
         }
     }
     clearIntervalSystem() {
-        console.log(`clear interval check : ${this.isHavingInterval()}`);
         if (this.isHavingInterval()) {
             clearInterval(this.intervalID);
         }
@@ -1611,7 +1609,6 @@ class UtilsScreenFunctions {
         return this.intervalID ? true : false;
     }
     showThisScreen() {
-        console.log("show this screen");
         this.elementsPack.forEach(element => {
             this.viewState = "visible";
             element.style.display = "block";
@@ -1685,14 +1682,12 @@ class Scr1ChoosePayments {
         ];
     }
     getNextScreenName() {
-        console.log(`It is Scr1's [getNextScreenName] func. nextScreenName: ${this.UTILS_SCREEN_FUNCTIONS.nextScreenName}`);
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
     }
     provideMoneyMonitor() {
         const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
             yield this.updateMoneyDisplay();
             this.PURCHACE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
-            console.log("update Scr1");
         }), 1000);
         return INTERVAL_ID;
     }
@@ -1738,7 +1733,6 @@ class ScrCredit {
         const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
             yield this.updateMoneyDisplay();
             this.PURCHASE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
-            console.log("update ScrCredit");
         }), 1000);
         return INTERVAL_ID;
     }
@@ -1893,7 +1887,6 @@ class ScrCash3 {
             this.PURCHACE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
             this.PAYMENT_AMOUNT.textContent = `¥${this.paymentAmount.toLocaleString()}`;
             this.CHANGE_AMOUNT.textContent = `¥${this.changeAmount.toLocaleString()}`;
-            console.log("update ScrCash3");
         }), 1000);
         return INTERVAL_ID;
     }
@@ -2090,7 +2083,6 @@ class ScrRebo {
         const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
             yield this.updateMoneyDisplay();
             this.PURCHASE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
-            console.log("update ScrRibo");
         }), 1000);
         return INTERVAL_ID;
     }
@@ -2282,7 +2274,6 @@ class Scr1ChoosePaymentsEn {
         ];
     }
     getNextScreenName() {
-        console.log(`It is Scr1's [getNextScreenName] func. nextScreenName: ${this.UTILS_SCREEN_FUNCTIONS.nextScreenName}`);
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
     }
 }
@@ -2370,7 +2361,6 @@ class AeonLikeCheckOutApp {
     }
     judgeGoToNewScreen() {
         this.updateNextScreenName();
-        console.log(`Current Screen: ${this.currentScreenName} | Next Screen: ${this.nextScreenName}`);
         if (this.isHaveNextScreen()) {
             this.goToNewScreen();
         }

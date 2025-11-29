@@ -20,7 +20,7 @@ import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11
 const REDIRECT_OPTIONS = [true, false];
 const RENDER_AUTH_METHOD_OPTIONS = ["signInWithPopup", "onAuthStateChanged", "signInWithRedirect"];
 class FirebaseFunctions {
-    constructor(FIREBASE_CONFIG) {
+    constructor(FIREBASE_CONFIG, IS_LOGIN_REQUIRED) {
         _FirebaseFunctions_instances.add(this);
         this.isShowTip = {};
         const APP = initializeApp(FIREBASE_CONFIG);
@@ -33,6 +33,7 @@ class FirebaseFunctions {
         this.ACCESS_TOKEN = "";
         this.IV = crypto.getRandomValues(new Uint8Array(12));
         this.SALT = crypto.getRandomValues(new Uint8Array(16));
+        this.IS_LOGIN_REQUIRED = IS_LOGIN_REQUIRED;
         this.UtilsFunc = new UtilsFunctions();
         this.preloader = new PreLoader();
         __classPrivateFieldGet(this, _FirebaseFunctions_instances, "m", _FirebaseFunctions___initTipFlg).call(this);
@@ -75,7 +76,7 @@ class FirebaseFunctions {
         set(DB_REF_DATA, JSON_DATA);
     }
     uploadData(rawPath, data) {
-        const USER_PATH = `${this.UID}/${rawPath}`;
+        const USER_PATH = this.IS_LOGIN_REQUIRED ? `${this.UID}/${rawPath}` : `${rawPath}`;
         const DB_REF_DATA = ref(this.DB, USER_PATH);
         if (typeof (data) == "string") {
             data = ["json", data];
@@ -220,7 +221,7 @@ class FirebaseFunctions {
             const RETRY_COUNT_UPTO = 3;
             for (let retry = 0; retry <= RETRY_COUNT_UPTO; retry++) {
                 try {
-                    const USER_PATH = `${this.UID}/${rawPath}`;
+                    const USER_PATH = this.IS_LOGIN_REQUIRED ? `${this.UID}/${rawPath}` : `${rawPath}`;
                     const DB_REF_DATA = ref(this.DB, USER_PATH);
                     const snapshot = yield get(DB_REF_DATA);
                     if (snapshot.exists()) {
@@ -1470,7 +1471,6 @@ class PreLoader {
                                     }
 
 
-
         `;
         this.STYLE.textContent = basicStyleContext;
         document.head.appendChild(this.STYLE);
@@ -1550,12 +1550,13 @@ class AudioManager {
     }
 }
 class UtilsScreenFunctions {
-    constructor(AUDIO_MANAGER, elementsPack, BtnEventsMap, isEnabledEvent = true) {
+    constructor(AUDIO_MANAGER, elementsPack, BtnEventsMap, isEnabledEvent = true, intervalID = "") {
         this.nextScreenName = "";
         this.viewState = "visible";
         this.AUDIO_MANAGER = AUDIO_MANAGER;
         this.BtnEventsMap = BtnEventsMap;
         this.elementsPack = elementsPack;
+        this.intervalID = intervalID;
         if (isEnabledEvent) {
             this.initEvents();
         }
@@ -1571,6 +1572,7 @@ class UtilsScreenFunctions {
             this.attachSoundEffect(soundName);
             this.setNextScreenName(nextScreenName);
             this.hideThisScreenSystem(nextScreenName);
+            this.clearIntervalSystem();
         });
     }
     attachSoundEffect(soundName) {
@@ -1580,6 +1582,7 @@ class UtilsScreenFunctions {
         this.AUDIO_MANAGER.playExplanationSound();
     }
     setNextScreenName(SCREEN_NAME) {
+        console.log(`next screen name set to : ${SCREEN_NAME}`);
         this.nextScreenName = SCREEN_NAME;
     }
     hideThisScreenSystem(nextScreenName) {
@@ -1598,7 +1601,17 @@ class UtilsScreenFunctions {
             });
         }
     }
+    clearIntervalSystem() {
+        console.log(`clear interval check : ${this.isHavingInterval()}`);
+        if (this.isHavingInterval()) {
+            clearInterval(this.intervalID);
+        }
+    }
+    isHavingInterval() {
+        return this.intervalID ? true : false;
+    }
     showThisScreen() {
+        console.log("show this screen");
         this.elementsPack.forEach(element => {
             this.viewState = "visible";
             element.style.display = "block";
@@ -1606,10 +1619,12 @@ class UtilsScreenFunctions {
     }
 }
 class Scr1ChoosePayments {
-    constructor(AUDIO_MANAGER) {
+    constructor(AUDIO_MANAGER, FIREBASE_APP) {
         this.ELEMENTS_PACK = [];
         this.BTN_EVENTS_MAP = [];
+        this.purchaseAmount = 0;
         this.AUDIO_MANAGER = AUDIO_MANAGER;
+        this.FIREBASE_APP = FIREBASE_APP;
         this.SCREEN_NAME = "Scr1ChoosePayments";
         this.viewState = "visible";
         this.nextScreenName = "";
@@ -1636,7 +1651,8 @@ class Scr1ChoosePayments {
         this.ORNERS_CARD_BTN = document.getElementById("ornerbtn");
         this.ELEMENTS_PACK = this.initElementsPack();
         this.BTN_EVENTS_MAP = this.initBtnEventsMap();
-        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP);
+        const INTERVAL_ID = this.provideMoneyMonitor();
+        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP, true, INTERVAL_ID);
     }
     initBtnEventsMap() {
         return [
@@ -1672,21 +1688,37 @@ class Scr1ChoosePayments {
         console.log(`It is Scr1's [getNextScreenName] func. nextScreenName: ${this.UTILS_SCREEN_FUNCTIONS.nextScreenName}`);
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
     }
+    provideMoneyMonitor() {
+        const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            yield this.updateMoneyDisplay();
+            this.PURCHACE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
+            console.log("update Scr1");
+        }), 1000);
+        return INTERVAL_ID;
+    }
+    updateMoneyDisplay() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.purchaseAmount = yield this.FIREBASE_APP.downloadData("aeon/purchaseAmount");
+        });
+    }
 }
 class ScrCredit {
-    constructor(AUDIO_MANAGER) {
+    constructor(AUDIO_MANAGER, FIREBASE_APP) {
         this.ELEMENTS_PACK = [];
         this.BTN_EVENTS_MAP = [];
         this.AUDIO_MANAGER = AUDIO_MANAGER;
+        this.FIREBASE_APP = FIREBASE_APP;
         this.SCREEN_NAME = "ScrCredit";
         this.viewState = "visible";
         this.nextScreenName = "";
         this.BACKGROUND = document.getElementById("credit");
         this.BACK_BTN = document.getElementById("opback");
         this.CALL_BTN = document.getElementById("opcall");
+        this.PURCHASE_AMOUNT = document.getElementById("creditAmount");
         this.ELEMENTS_PACK = this.initElementsPack();
         this.BTN_EVENTS_MAP = this.initBtnEventsMap();
-        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP);
+        const INTERVAL_ID = this.provideMoneyMonitor();
+        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP, true);
     }
     initBtnEventsMap() {
         return [
@@ -1696,11 +1728,24 @@ class ScrCredit {
     }
     initElementsPack() {
         return [
-            this.BACKGROUND, this.BACK_BTN, this.CALL_BTN
+            this.BACKGROUND, this.BACK_BTN, this.CALL_BTN, this.PURCHASE_AMOUNT
         ];
     }
     getNextScreenName() {
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
+    }
+    provideMoneyMonitor() {
+        const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            yield this.updateMoneyDisplay();
+            this.PURCHASE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
+            console.log("update ScrCredit");
+        }), 1000);
+        return INTERVAL_ID;
+    }
+    updateMoneyDisplay() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.purchaseAmount = yield this.FIREBASE_APP.downloadData("aeon/purchaseAmount");
+        });
     }
 }
 class ScrBaon {
@@ -1801,9 +1846,10 @@ class ScrCash {
     }
 }
 class ScrCash3 {
-    constructor(AUDIO_MANAGER) {
+    constructor(AUDIO_MANAGER, FIREBASE_APP) {
         this.ELEMENTS_PACK = [];
         this.BTN_EVENTS_MAP = [];
+        this.FIREBASE_APP = FIREBASE_APP;
         this.AUDIO_MANAGER = AUDIO_MANAGER;
         this.SCREEN_NAME = "CASH_SCREEN3";
         this.viewState = "visible";
@@ -1819,6 +1865,7 @@ class ScrCash3 {
         this.PURCHACE_AMOUNT = document.getElementById("purchaseAmount");
         this.ELEMENTS_PACK = this.initElementsPack();
         this.BTN_EVENTS_MAP = this.initBtnEventsMap();
+        const INTERVAL_ID = this.provideMoneyMonitor();
         this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP);
     }
     initBtnEventsMap() {
@@ -1839,6 +1886,23 @@ class ScrCash3 {
     }
     getNextScreenName() {
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
+    }
+    provideMoneyMonitor() {
+        const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            yield this.updateMoneyDisplay();
+            this.PURCHACE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
+            this.PAYMENT_AMOUNT.textContent = `¥${this.paymentAmount.toLocaleString()}`;
+            this.CHANGE_AMOUNT.textContent = `¥${this.changeAmount.toLocaleString()}`;
+            console.log("update ScrCash3");
+        }), 1000);
+        return INTERVAL_ID;
+    }
+    updateMoneyDisplay() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.purchaseAmount = yield this.FIREBASE_APP.downloadData("aeon/purchaseAmount");
+            this.paymentAmount = yield this.FIREBASE_APP.downloadData("aeon/paidAmount");
+            this.changeAmount = yield this.FIREBASE_APP.downloadData("aeon/changeAmount");
+        });
     }
 }
 class ScrCash3ReadCard {
@@ -1872,10 +1936,11 @@ class ScrCash3ReadCard {
     }
 }
 class SrcTakeCharge {
-    constructor(AUDIO_MANAGER) {
+    constructor(AUDIO_MANAGER, FIREBASE_APP) {
         this.ELEMENTS_PACK = [];
         this.BTN_EVENTS_MAP = [];
         this.AUDIO_MANAGER = AUDIO_MANAGER;
+        this.FIREBASE_APP = FIREBASE_APP;
         this.SCREEN_NAME = "TAKE_CHANGE_SCREEN";
         this.viewState = "visible";
         this.nextScreenName = "";
@@ -1884,7 +1949,8 @@ class SrcTakeCharge {
         this.PAYMENT_AMOUNT = document.getElementById("paymentAmount4");
         this.ELEMENTS_PACK = this.initElementsPack();
         this.BTN_EVENTS_MAP = this.initBtnEventsMap();
-        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP, false);
+        const INTERVAL_ID = this.provideMoneyMonitor();
+        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP, false, INTERVAL_ID);
         this.delayTransition();
     }
     initBtnEventsMap() {
@@ -1912,6 +1978,20 @@ class SrcTakeCharge {
     }
     getNextScreenName() {
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
+    }
+    provideMoneyMonitor() {
+        const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            yield this.updateMoneyDisplay();
+            this.PAYMENT_AMOUNT.textContent = `¥${this.paymentAmount.toLocaleString()}`;
+            this.CHANGE_AMOUNT.textContent = `¥${this.changeAmount.toLocaleString()}`;
+        }), 1000);
+        return INTERVAL_ID;
+    }
+    updateMoneyDisplay() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.paymentAmount = yield this.FIREBASE_APP.downloadData("aeon/paidAmount");
+            this.changeAmount = yield this.FIREBASE_APP.downloadData("aeon/changeAmount");
+        });
     }
 }
 class ScrReadCard {
@@ -1975,9 +2055,10 @@ class ScrBaonPoint {
     }
 }
 class ScrRebo {
-    constructor(AUDIO_MANAGER) {
+    constructor(AUDIO_MANAGER, FIREBASE_APP) {
         this.ELEMENTS_PACK = [];
         this.BTN_EVENTS_MAP = [];
+        this.FIREBASE_APP = FIREBASE_APP;
         this.AUDIO_MANAGER = AUDIO_MANAGER;
         this.SCREEN_NAME = "REBO_SCREEN";
         this.viewState = "visible";
@@ -1985,9 +2066,11 @@ class ScrRebo {
         this.BACKGROUND = document.getElementById("ribo");
         this.BACK_BTN = document.getElementById("opback");
         this.CALL_BTN = document.getElementById("opcall");
+        this.PURCHASE_AMOUNT = document.getElementById("riboAmount");
         this.ELEMENTS_PACK = this.initElementsPack();
         this.BTN_EVENTS_MAP = this.initBtnEventsMap();
-        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP);
+        const INTERVAL_ID = this.provideMoneyMonitor();
+        this.UTILS_SCREEN_FUNCTIONS = new UtilsScreenFunctions(this.AUDIO_MANAGER, this.ELEMENTS_PACK, this.BTN_EVENTS_MAP, true, INTERVAL_ID);
     }
     initBtnEventsMap() {
         return [
@@ -1997,11 +2080,24 @@ class ScrRebo {
     }
     initElementsPack() {
         return [
-            this.BACKGROUND, this.BACK_BTN, this.CALL_BTN
+            this.BACKGROUND, this.BACK_BTN, this.CALL_BTN, this.PURCHASE_AMOUNT
         ];
     }
     getNextScreenName() {
         return this.UTILS_SCREEN_FUNCTIONS.nextScreenName;
+    }
+    provideMoneyMonitor() {
+        const INTERVAL_ID = setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            yield this.updateMoneyDisplay();
+            this.PURCHASE_AMOUNT.textContent = `¥${this.purchaseAmount.toLocaleString()}`;
+            console.log("update ScrRibo");
+        }), 1000);
+        return INTERVAL_ID;
+    }
+    updateMoneyDisplay() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.purchaseAmount = yield this.FIREBASE_APP.downloadData("aeon/purchaseAmount");
+        });
     }
 }
 class ScrGift {
@@ -2250,9 +2346,18 @@ class ScrOrnersCard {
 class AeonLikeCheckOutApp {
     constructor() {
         this.viceAudioList = [];
-
         this.AUDIO_MANAGER = new AudioManager();
-        this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER);
+        const FIREBASE_CONFIG = {
+            apiKey: "AIzaSyCe6mXKC5CJag9uP6N4mtDG1x62lwGIocg",
+            authDomain: "selfcheckouttraining.firebaseapp.com",
+            databaseURL: "https://selfcheckouttraining-default-rtdb.firebaseio.com",
+            projectId: "selfcheckouttraining",
+            storageBucket: "selfcheckouttraining.firebasestorage.app",
+            messagingSenderId: "466336325364",
+            appId: "1:466336325364:web:dcfe19531b21c2ba6a48a1"
+        };
+        this.FIREBASE_APP = new FirebaseFunctions(FIREBASE_CONFIG, false);
+        this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER, this.FIREBASE_APP);
         this.currentScreenName = this.screenObject.SCREEN_NAME;
         this.nextScreenName = this.screenObject.getNextScreenName();
         this.invokeScreenMonitor();
@@ -2264,6 +2369,8 @@ class AeonLikeCheckOutApp {
         return this.nextScreenName == "" ? false : true;
     }
     judgeGoToNewScreen() {
+        this.updateNextScreenName();
+        console.log(`Current Screen: ${this.currentScreenName} | Next Screen: ${this.nextScreenName}`);
         if (this.isHaveNextScreen()) {
             this.goToNewScreen();
         }
@@ -2271,13 +2378,13 @@ class AeonLikeCheckOutApp {
     goToNewScreen() {
         switch (this.screenObject.getNextScreenName()) {
             case "ChoosePayments_SCREEN":
-                this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER);
+                this.screenObject = new Scr1ChoosePayments(this.AUDIO_MANAGER, this.FIREBASE_APP);
                 break;
             case "ChoosePayments_En_SCREEN":
                 this.screenObject = new Scr1ChoosePaymentsEn(this.AUDIO_MANAGER);
                 break;
             case "CREDIT_SCREEN":
-                this.screenObject = new ScrCredit(this.AUDIO_MANAGER);
+                this.screenObject = new ScrCredit(this.AUDIO_MANAGER, this.FIREBASE_APP);
                 break;
             case "BAON_SCREEN":
                 this.screenObject = new ScrBaon(this.AUDIO_MANAGER);
@@ -2289,16 +2396,16 @@ class AeonLikeCheckOutApp {
                 this.screenObject = new ScrCash(this.AUDIO_MANAGER);
                 break;
             case "CASH_SCREEN3":
-                this.screenObject = new ScrCash3(this.AUDIO_MANAGER);
+                this.screenObject = new ScrCash3(this.AUDIO_MANAGER, this.FIREBASE_APP);
                 break;
             case "CASH3_READ_CARD_SCREEN":
                 this.screenObject = new ScrCash3ReadCard(this.AUDIO_MANAGER);
                 break;
             case "TAKE_CHANGE_SCREEN":
-                this.screenObject = new SrcTakeCharge(this.AUDIO_MANAGER);
+                this.screenObject = new SrcTakeCharge(this.AUDIO_MANAGER, this.FIREBASE_APP);
                 break;
             case "REBO_SCREEN":
-                this.screenObject = new ScrRebo(this.AUDIO_MANAGER);
+                this.screenObject = new ScrRebo(this.AUDIO_MANAGER, this.FIREBASE_APP);
                 break;
             case "GIFT_SCREEN":
                 this.screenObject = new ScrGift(this.AUDIO_MANAGER);
@@ -2337,9 +2444,8 @@ class AeonLikeCheckOutApp {
     }
     invokeScreenMonitor() {
         setInterval(() => {
-            this.updateNextScreenName();
             this.judgeGoToNewScreen();
-        }, 3000);
+        }, 1000);
     }
 }
 const APP = new AeonLikeCheckOutApp();

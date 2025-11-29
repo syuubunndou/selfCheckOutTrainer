@@ -453,8 +453,8 @@ html, body {
 }
 .credit-purchase-amount{/*クレジット支払の際　残高表示*/
     position        : absolute;
-    bottom          : 205px;
-    left            : 535px;
+    bottom          : 270px;
+    left            : 570px;
      /*元の幅は350px. それを７．７３％減少した。*/
     width           : 323px;
 

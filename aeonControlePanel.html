@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イオンセミセルフレジ コントロールパネル</title>
+    <link rel="stylesheet" href="aeonControlePanel.css">
+</head>
+<body>
+    
+    <h1 id="control-panel-title">イオンセミセルフレジ用　コントロールパネル</h1>
+
+    <div id="cash-payment-container">
+        <div id="info-area">
+            
+            <div class="input-row">
+                <div class="label-div">支払い金額</div>
+                <input type="text" id="purchase-amount" class="input-field active" value="0">
+            </div>
+
+            <div class="input-row">
+                <div class="label-div">投入金額</div>
+                <input type="text" id="paid-amount" class="input-field" value="0">
+            </div>
+
+            <div class="input-row">
+                <div class="label-div">おつり</div>
+                <input type="text" id="change-amount" class="input-field" value="0">
+            </div>
+
+        </div>
+
+        <div id="keypad">
+            <button class="key-btn number" data-key="7">7</button>
+            <button class="key-btn number" data-key="8">8</button>
+            <button class="key-btn number" data-key="9">9</button>
+            
+            <button class="key-btn number" data-key="4">4</button>
+            <button class="key-btn number" data-key="5">5</button>
+            <button class="key-btn number" data-key="6">6</button>
+            
+            <button class="key-btn number" data-key="1">1</button>
+            <button class="key-btn number" data-key="2">2</button>
+            <button class="key-btn number" data-key="3">3</button>
+            
+            <button class="key-btn action" data-key="00">00</button>
+            <button class="key-btn number" data-key="0">0</button>
+            <button class="key-btn action delete" data-key="DEL">DEL</button>
+        </div>
+        
+        <button id="submit-btn" class="key-btn action">送信</button>
+    </div>
+
+    <script type="module" src="aeonControlePanel.js"></script>
+</body>
+</html>

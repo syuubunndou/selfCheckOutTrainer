@@ -1,0 +1,149 @@
+/* ファイル名: aeonControlePanel.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* heightを auto に変更し、内部要素のサイズに合わせて全体を縮小 */
+    height: auto; 
+    min-height: 40vh; /* 縮小した結果がわかるよう最小高さを設定 */
+    
+    margin: 0;
+    background-color: #f4f4f4;
+    /* 縮小 */
+    padding-top: 10px;
+}
+
+/* コントロールパネルのタイトルスタイル */
+#control-panel-title {
+    color: #007bff;
+    /* 縮小 */
+    margin-bottom: 10px;
+    /* 縮小 */
+    font-size: 1.4em;
+    /* 縮小 */
+    border-bottom: 2px solid #007bff;
+    /* 縮小 */
+    padding-bottom: 3px;
+}
+
+#cash-payment-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    /* 縮小 */
+    padding: 15px;
+    /* 縮小 */
+    border-radius: 8px;
+    /* 影を若干小さく */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#info-area {
+    /* 縮小 */
+    margin-bottom: 10px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 縮小 */
+    margin-bottom: 8px;
+    /* 縮小 */
+    padding: 5px 0;
+    /* 線を細く */
+    border-bottom: 1px solid #eee;
+}
+
+.label-div {
+    /* 縮小 */
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+}
+
+.input-field {
+    text-align: right;
+    /* 縮小 */
+    font-size: 1.2em;
+    /* 縮小 */
+    padding: 3px 8px;
+    border: 2px solid transparent;
+    background-color: transparent;
+    width: 60%;
+    color: #000;
+    box-sizing: border-box;
+}
+
+/* アクティブなフィールドを視覚的に強調する */
+.input-field:focus,
+.input-field.active {
+    border-color: #007bff;
+    outline: none;
+    background-color: #f9f9ff;
+}
+
+/* キーパッドエリア */
+#keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 縮小 */
+    grid-gap: 8px;
+    /* 縮小 */
+    padding-top: 10px;
+    /* 縮小 */
+    border-top: 1px solid #ddd;
+    /* 縮小 */
+    margin-bottom: 10px;
+}
+
+.key-btn {
+    /* 大幅に縮小 */
+    padding: 12px;
+    /* 縮小 */
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    /* 縮小 */
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.1s;
+}
+
+.key-btn:active {
+    background-color: #ddd;
+}
+
+.action {
+    background-color: #f0f0f0;
+}
+
+.delete {
+    background-color: #ffaaaa;
+    color: white;
+}
+
+/* 送信ボタンのスタイル */
+#submit-btn {
+    width: 100%;
+    /* 縮小 */
+    padding: 10px;
+    /* 縮小 */
+    font-size: 1.2em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    /* 縮小 */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#submit-btn:active {
+    background-color: #1e7e34;
+}

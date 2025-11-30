@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="daisoCheckout.css">
+        <title>ダイソー　セミセルフレジ　練習</title>
+
+    </head>
+
+    <body>
+
+        <!-- 【画面1】 -->
+        <img src="src1_base.png"       class="src1-base"        id="src1-base">
+        <img src="src1_startBtn.png"   class="src1-start-btn"   id="src1-start-btn">
+        <img src="src1_callStaffBtn.png" class="src1-call-staff-btn" id="src1-call-staff-btn">
+        <img src="src1_jpBtn.png"      class="src1-jp-btn"      id="src1-jp-btn">
+        <img src="src1_enBtn.png"      class="src1-en-btn"      id="src1-en-btn">
+        <img src="src1_chBtn.png"      class="src1-ch-btn"      id="src1-ch-btn">
+        <img src="src1_hanBtn.png"     class="src1-han-btn"     id="src1-han-btn">
+
+
+        <!-- 【画面2】 -->
+        <img src="src2_base.png"       class="src2-base"        id="src2-base">
+        <img src="src2_yesBtn.png"     class="src2-yes-btn"     id="src2-yes-btn">
+        <img src="src2_noBtn.png"      class="src2-no-btn"      id="src2-no-btn">
+
+
+        <!-- 【画面3】 -->
+        <img src="src3_base.png"       class="src3-base"        id="src3-base">
+        <img src="src3_trushBtn.png"   class="src3-trush-btn"   id="src3-trush-btn">
+        <img src="src3_addBagBtn.png"  class="src3-add-bag-btn" id="src3-add-bag-btn">
+        <img src="src3_payBtn.png"     class="src3-pay-btn"     id="src3-pay-btn">
+
+        <!-- 商品一覧 表エリア（画面3） -->
+        <div class="src3-item-table">
+
+            <div class="item-header item-row">
+                <div class="col-no">No.</div>
+                <div class="col-name">商品名称</div>
+                <div class="col-qty">数量</div>
+                <div class="col-disc">値下合計</div>
+                <div class="col-price">金額</div>
+            </div>
+
+        <!-- ▼ JSで動的に行を追加する部分 ▼ -->
+        <div id="item-list">
+            <div class="item-row item-data">
+                <div class="col-no"></div>
+                <div class="col-name"></div>
+                <div class="col-qty"></div>
+                <div class="col-disc"></div>
+                <div class="col-price"></div>
+            </div>
+            <div class="item-row item-data">
+                <div class="col-no"></div>
+                <div class="col-name"></div>
+                <div class="col-qty"></div>
+                <div class="col-disc"></div>
+                <div class="col-price"></div>
+            </div>
+            <div class="item-row item-data">
+                <div class="col-no"></div>
+                <div class="col-name"></div>
+                <div class="col-qty"></div>
+                <div class="col-disc"></div>
+                <div class="col-price"></div>
+            </div>
+            <div class="item-row item-data">
+                <div class="col-no"></div>
+                <div class="col-name"></div>
+                <div class="col-qty"></div>
+                <div class="col-disc"></div>
+                <div class="col-price"></div>
+            </div>
+            <div class="item-row item-data">
+                <div class="col-no"></div>
+                <div class="col-name"></div>
+                <div class="col-qty"></div>
+                <div class="col-disc"></div>
+                <div class="col-price"></div>
+            </div>
+        </div>
+        <!-- ▲ ここに JS で商品行が入る ▲ -->
+
+            <!-- 合計行 -->
+            <div class="item-footer item-row">
+                <div class="footer-label">合計</div>
+                <div class="footer-qty" id="total-count">0 点</div>
+                <div class="footer-price" id="total-price">¥0</div>
+            </div>
+
+        </div>
+
+
+        <!-- 【画面4】 -->
+        <img src="src4_base.png"       class="src4-base"        id="src4-base">
+        <img src="src4_creditBtn.png"  class="src4-credit-btn"  id="src4-credit-btn">
+        <img src="src4_emoneyBtn.png"  class="src4-emoney-btn"  id="src4-emoney-btn">
+        <img src="src4_ecouponBtn.png" class="src4-ecoupon-btn" id="src4-ecoupon-btn">
+        <img src="src4_codePayBtn.png" class="src4-code-pay-btn" id="src4-code-pay-btn">
+        <img src="src4_confirmed.png"  class="src4-confirmed"   id="src4-confirmed">
+        <img src="src4_returnBtn.png"  class="src4-return-btn"  id="src4-return-btn">
+        <img src="src4_callStaffBtn.png" class="src4-call-staff-btn" id="src4-call-staff-btn">
+        <img src="src4_jpBtn.png"      class="src4-jp-btn"      id="src4-jp-btn">
+        <img src="src4_enBtn.png"      class="src4-en-btn"      id="src4-en-btn">
+        <img src="src4_chBtn.png"      class="src4-ch-btn"      id="src4-ch-btn">
+        <img src="src4_hanBtn.png"     class="src4-han-btn"     id="src4-han-btn">
+        <img src="src4_refBtn.png"     class="src4-ref-btn"     id="src4-ref-btn">
+
+
+        <!-- 【画面5】 -->
+        <img src="src5_base.png"       class="src5-base"        id="src5-base">
+        <img src="src5_receiptBtn.png" class="src5-receipt-btn" id="src5-receipt-btn">
+        <img src="src5_ryousyuusyoBtn.png" class="src5-ryousyuusyo-btn" id="src5-ryousyuusyo-btn">
+
+
+        <!-- 【画面6】 -->
+        <img src="src6_base.png"       class="src6-base"        id="src6-base">
+
+
+        <!-- 【画面7】 -->
+        <img src="src7_base.png"       class="src7-base"        id="src7-base">
+
+
+
+        <script type="module" src="daisoCheckout.js"></script>
+    </body>
+
+</html>
+
+
+
+
+

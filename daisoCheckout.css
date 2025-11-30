@@ -1,0 +1,251 @@
+/* ============================
+   画面1（スタート画面）
+   画像配置のみ
+   1080 × 780 前提
+============================ */
+/* 固定画面 */
+.screen1 {
+    position: relative;
+    width: 1080px;
+    height: 780px;
+    margin: 0 auto;
+    background-color: #000; /* 背景確認用（あとで消してOK） */
+}
+
+/* 共通：絶対配置 */
+.screen1 img {
+    position: absolute;
+}
+
+/* 背景 */
+.src1-base {
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 780px;
+}
+
+/* スタートボタン（中央より少し上） */
+.src1-start-btn {
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: auto;
+}
+
+/* 下部 5 ボタン群 */
+.src1-call-staff-btn,
+.src1-jp-btn,
+.src1-en-btn,
+.src1-ch-btn,
+.src1-han-btn {
+    bottom: 60px;
+    width: 150px;
+    height: auto;
+}
+
+.src1-call-staff-btn { left: 120px; }
+.src1-jp-btn         { left: 285px; }
+.src1-en-btn         { left: 450px; }
+.src1-ch-btn         { left: 615px; }
+.src1-han-btn        { left: 780px; }
+
+/* ============================
+   画面2（有料レジ袋）
+============================ */
+.src2-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 780px;
+    pointer-events: none;
+}
+
+.src2-yes-btn {
+    position: absolute;
+    width: 260px;
+    height: 120px;
+    top: 430px;
+    left: 230px;
+    cursor: pointer;
+}
+
+.src2-no-btn {
+    position: absolute;
+    width: 260px;
+    height: 120px;
+    top: 430px;
+    left: 580px;
+    cursor: pointer;
+}
+
+/* ============================
+   画面3（買い物スキャン画面）
+============================ */
+.src3-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 780px;
+    pointer-events: none;
+}
+
+.src3-trush-btn {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 420px;
+    left: 40px;
+    cursor: pointer;
+}
+
+.src3-add-bag-btn {
+    position: absolute;
+    width: 220px;
+    height: 110px;
+    top: 300px;
+    left: 830px;
+    cursor: pointer;
+}
+
+.src3-pay-btn {
+    position: absolute;
+    width: 220px;
+    height: 215px;
+    top: 430px;
+    left: 830px;
+    cursor: pointer;
+}
+
+/* ===============================
+   画面3：商品一覧テーブル
+=============================== */
+.src3-item-table {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 760px;
+    height: 150px;
+    font-family: "Meiryo", sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+/* 共通行レイアウト（列比率） */
+.item-row {
+    display: grid;
+    grid-template-columns: 29fr 190fr 29fr 70fr 80fr;
+    height: 37px;
+    align-items: center;
+}
+
+/* ヘッダー行 */
+.item-header {
+    font-weight: bold;
+    background-color: #ffffff;
+    border-top: 1px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+/* 合計行 */
+.item-footer {
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 2px solid #333;
+    height: 50px;
+}
+
+/* 合計行の個別調整 */
+.footer-label {
+    grid-column: 1 / 2;
+}
+.footer-qty {
+    grid-column: 3 / 4;
+    text-align: center;
+}
+.footer-price {
+    grid-column: 5 / 6;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.item-row > div {
+    border-right: 1px solid #ccc;
+    padding-left: 10px;
+    height: 70%;   /* grid 行に合わせて高さを伸ばす */
+    box-sizing: border-box; /* padding込みで border を正しく描画 */
+}
+.item-row > div:last-child {
+    border-right: none;
+}
+
+/* ダミー行背景色交互 */
+#item-list .item-data:nth-child(even) {
+    background-color: #ffffff;
+}
+#item-list .item-data:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+/* ===============================
+   非表示設定
+=============================== */
+.src1-base,
+.src1-start-btn,
+.src1-call-staff-btn{
+    display: block;
+    position: absolute;
+}
+
+.src1-jp-btn,
+.src1-en-btn,
+.src1-ch-btn,
+.src1-han-btn {
+    display: block;
+    position: absolute;
+    z-index: 3;
+}
+
+.src2-base,
+.src2-yes-btn,
+.src2-no-btn {
+    display: none;
+}
+
+.src3-base,
+.src3-trush-btn,
+.src3-add-bag-btn,
+.src3-pay-btn,
+.src3-item-table {
+    display: none;
+}
+
+.src4-base,
+.src4-credit-btn,
+.src4-emoney-btn,
+.src4-ecoupon-btn,
+.src4-code-pay-btn,
+.src4-confirmed,
+.src4-return-btn,
+.src4-call-staff-btn,
+.src4-jp-btn,
+.src4-en-btn,
+.src4-ch-btn,
+.src4-han-btn,
+.src4-ref-btn {
+    display: none;
+}
+
+.src5-base,
+.src5-receipt-btn,
+.src5-ryousyuusyo-btn {
+    display: none;
+}
+
+.src6-base,
+.src7-base {
+    display: none;
+}

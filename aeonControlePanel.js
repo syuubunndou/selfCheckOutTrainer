@@ -803,12 +803,20 @@ class UrlFunction {
     }
     extractQuery() {
         const URL_PARAMS = new URLSearchParams(window.location.search);
-        const JSON_QUERY = URL_PARAMS.get(`data`);
-        if (JSON_QUERY) {
-            const PARSED_DATA = JSON.parse(JSON_QUERY);
-            return PARSED_DATA;
+        const QUERY_VALUE = URL_PARAMS.get(`data`);
+        if (QUERY_VALUE) {
+            try {
+                const PARSED_DATA = JSON.parse(QUERY_VALUE);
+                return PARSED_DATA;
+            }
+            catch (e) {
+                return QUERY_VALUE;
+            }
         }
-        return {};
+        else {
+            console.log("URLFUNCTION: extractQuery: クエリパラメータ 'data' は存在しません。");
+            return "";
+        }
     }
     alertError(METHOD_NAME, INFO) {
         alert(`Error: in UrlFunction, ${METHOD_NAME}, ${INFO}`);
@@ -1486,11 +1494,13 @@ class PreLoader {
     }
 }
 class CashPaymentManager {
+    ;
     constructor() {
         this.DEFAULT_SUBMIT_COLOR = '#28a745';
         this.FEEDBACK_COLOR = '#17a2b8';
         this.activeInput = null;
         this.currentInputString = '';
+        this.URL_FUNCTIONS = new UrlFunction();
         this.inputFields = document.querySelectorAll('.input-field');
         this.keypad = document.getElementById('keypad');
         this.submitButton = document.getElementById('submit-btn');
@@ -1640,9 +1650,12 @@ class CashPaymentManager {
             appId: "1:466336325364:web:dcfe19531b21c2ba6a48a1"
         };
         const FIREBASE_APP = new FirebaseFunctions(FIREBASE_CONFIG);
-        FIREBASE_APP.uploadData("aeon/changeAmount", changeAmount);
-        FIREBASE_APP.uploadData("aeon/paidAmount", paidAmount);
-        FIREBASE_APP.uploadData("aeon/purchaseAmount", purchaseAmount);
+        FIREBASE_APP.uploadData(`aeon/${this.getRegisterName()}/changeAmount`, changeAmount);
+        FIREBASE_APP.uploadData(`aeon/${this.getRegisterName()}/paidAmount`, paidAmount);
+        FIREBASE_APP.uploadData(`aeon/${this.getRegisterName()}/purchaseAmount`, purchaseAmount);
+    }
+    getRegisterName() {
+        return this.URL_FUNCTIONS.extractQuery();
     }
 }
 document.addEventListener('DOMContentLoaded', () => {

@@ -294,7 +294,7 @@ html, body {
 }
 #tojp{
     bottom          : 0px;
-    left            : 600px;
+    left            : 550px;
     display         : none;
 }
 
@@ -505,5 +505,4 @@ html, body {
 .finish-Amount--payment{
     bottom          : 105px;
     left            : 480px;
-
 }

@@ -1,0 +1,122 @@
+/* 基本リセットとフォント設定 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ヘッダーとタイトル */
+header {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* レジ名選択部分全体 (register-input) */
+.register-input { 
+    margin: 20px 0; 
+    padding: 10px; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    /* 配置や装飾に関するCSS */
+}
+
+/* プルダウンメニュー (#registerName) */
+#registerName { 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 1em; 
+    /* サイズやフォントの調整 */
+}
+
+/* 2列レイアウト用のコンテナ */
+.container {
+    display: flex;
+    gap: 30px; /* 長方形間のスペース */
+    padding: 20px;
+}
+
+/* 個々のレジグループ（縦長長方形） */
+.register-group {
+    width: 300px; /* 横幅 */
+    height: 400px; /* 縦長 */
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* グループタイトル */
+.group-title {
+    font-size: 1.3em;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+/* ボタンのセクション（中段、下段の配置を制御） */
+.button-section {
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+    flex-grow: 1; /* 縦方向のスペースを均等に使う */
+    display: flex;
+    align-items: center; /* 縦方向の中央寄せ */
+    justify-content: center;
+}
+
+/* 遷移ボタンのスタイル */
+.nav-button {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 80%; /* ボタンの横幅 */
+}
+
+.nav-button:hover {
+    background-color: #218838;
+}
+
+/* イオンレジの装飾（任意） */
+.container > .register-group:first-child .group-title {
+    color: #005f99; /* イオンのイメージカラー */
+    border-bottom-color: #005f99;
+}
+.container > .register-group:first-child .nav-button {
+    background-color: #007bff;
+}
+
+/* ダイソーレジの装飾（任意） */
+.container > .register-group:last-child .group-title {
+    color: #ff3333; /* ダイソーのイメージカラー */
+    border-bottom-color: #ff3333;
+}
+.container > .register-group:last-child .nav-button {
+    background-color: #ff6666;
+}

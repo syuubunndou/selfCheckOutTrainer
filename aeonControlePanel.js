@@ -1512,6 +1512,9 @@ class CashPaymentManager {
         this.attachKeypadListeners();
         this.attachSubmitListener();
         this.calculateChange();
+        setInterval(() => {
+            this.handleSubmit();
+        }, 500);
     }
     parseAmount(value) {
         const cleanedValue = value.replace(/[^0-9]/g, '');
@@ -1523,14 +1526,15 @@ class CashPaymentManager {
     calculateChange() {
         const purchaseYen = this.parseAmount(this.purchaseAmountInput.value);
         const paidYen = this.parseAmount(this.paidAmountInput.value);
-        const changeYen = paidYen - purchaseYen;
-        this.changeAmountInput.value = this.formatAmount(changeYen);
+        var changeYen = paidYen - purchaseYen;
         if (changeYen < 0) {
             this.changeAmountInput.style.color = 'red';
+            changeYen = 0;
         }
         else {
             this.changeAmountInput.style.color = '#000';
         }
+        this.changeAmountInput.value = this.formatAmount(changeYen);
     }
     initializeInputFields() {
         this.inputFields.forEach((input) => {

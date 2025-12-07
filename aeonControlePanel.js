@@ -1494,7 +1494,6 @@ class PreLoader {
     }
 }
 class CashPaymentManager {
-    ;
     constructor() {
         this.DEFAULT_SUBMIT_COLOR = '#28a745';
         this.FEEDBACK_COLOR = '#17a2b8';
@@ -1589,11 +1588,15 @@ class CashPaymentManager {
     handleKeyInput(key) {
         if (!this.activeInput)
             return;
+        this.currentInputString = '0';
         if (key === 'DEL') {
             this.currentInputString = this.currentInputString.slice(0, -1);
             if (this.currentInputString.length === 0) {
                 this.currentInputString = '0';
             }
+        }
+        else if (key === 'CLEAR') {
+            this.currentInputString = '0';
         }
         else if (key === '00') {
             if (this.currentInputString !== '' && this.currentInputString !== '0') {
@@ -1602,10 +1605,10 @@ class CashPaymentManager {
         }
         else if (key >= '0' && key <= '9') {
             if (this.currentInputString === '0' || this.currentInputString === '') {
-                this.currentInputString = key;
+                this.currentInputString = `${key}00`;
             }
             else {
-                this.currentInputString += key;
+                this.currentInputString += `${key}00`;
             }
         }
         if (this.currentInputString.length > 10) {
